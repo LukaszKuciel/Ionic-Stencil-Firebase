@@ -1,0 +1,19 @@
+{
+  "name": "ionic_stencil_firebase",
+  "version": "1.0.0",
+  "description": "Simple app with Stenciljs, Ionic and Firebase",
+  "scripts": {
+    "start": "stencil build --dev --watch --serve",
+    "build": "stencil build"
+  },
+  "author": "Lukasz Kuciel",
+  "license": "ISC",
+  "dependencies": {
+    "@ionic/core": "^4.2.0",
+    "firebase": "^5.9.3"
+  },
+  "devDependencies": {
+    "@stencil/core": "^0.18.1",
+    "@stencil/sass": "^0.1.1"
+  }
+}
