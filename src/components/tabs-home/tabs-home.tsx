@@ -2,10 +2,10 @@ import { Component } from '@stencil/core';
 import { Navbar } from '../functional';
 
 @Component({
-    tag: 'page-home',
-    styleUrl: 'page-home.scss'
+    tag: 'tabs-home',
+    styleUrl: 'tabs-home.scss'
 })
-export class PageHome {
+export class TabsHome {
     render() {
         return <Navbar title='Home' />;
     }

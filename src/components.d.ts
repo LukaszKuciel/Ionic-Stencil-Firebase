@@ -16,24 +16,44 @@ export namespace Components {
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
 
+  interface AppMenu {}
+  interface AppMenuAttributes extends StencilHTMLAttributes {}
+
   interface PageAbout {}
   interface PageAboutAttributes extends StencilHTMLAttributes {}
 
   interface PageHome {}
   interface PageHomeAttributes extends StencilHTMLAttributes {}
+
+  interface TabsDashboard {}
+  interface TabsDashboardAttributes extends StencilHTMLAttributes {}
+
+  interface TabsHome {}
+  interface TabsHomeAttributes extends StencilHTMLAttributes {}
+
+  interface TabsRoot {}
+  interface TabsRootAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
   interface StencilElementInterfaces {
     'AppRoot': Components.AppRoot;
+    'AppMenu': Components.AppMenu;
     'PageAbout': Components.PageAbout;
     'PageHome': Components.PageHome;
+    'TabsDashboard': Components.TabsDashboard;
+    'TabsHome': Components.TabsHome;
+    'TabsRoot': Components.TabsRoot;
   }
 
   interface StencilIntrinsicElements {
     'app-root': Components.AppRootAttributes;
+    'app-menu': Components.AppMenuAttributes;
     'page-about': Components.PageAboutAttributes;
     'page-home': Components.PageHomeAttributes;
+    'tabs-dashboard': Components.TabsDashboardAttributes;
+    'tabs-home': Components.TabsHomeAttributes;
+    'tabs-root': Components.TabsRootAttributes;
   }
 
 
@@ -41,6 +61,12 @@ declare global {
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
+  };
+
+  interface HTMLAppMenuElement extends Components.AppMenu, HTMLStencilElement {}
+  var HTMLAppMenuElement: {
+    prototype: HTMLAppMenuElement;
+    new (): HTMLAppMenuElement;
   };
 
   interface HTMLPageAboutElement extends Components.PageAbout, HTMLStencilElement {}
@@ -55,16 +81,42 @@ declare global {
     new (): HTMLPageHomeElement;
   };
 
+  interface HTMLTabsDashboardElement extends Components.TabsDashboard, HTMLStencilElement {}
+  var HTMLTabsDashboardElement: {
+    prototype: HTMLTabsDashboardElement;
+    new (): HTMLTabsDashboardElement;
+  };
+
+  interface HTMLTabsHomeElement extends Components.TabsHome, HTMLStencilElement {}
+  var HTMLTabsHomeElement: {
+    prototype: HTMLTabsHomeElement;
+    new (): HTMLTabsHomeElement;
+  };
+
+  interface HTMLTabsRootElement extends Components.TabsRoot, HTMLStencilElement {}
+  var HTMLTabsRootElement: {
+    prototype: HTMLTabsRootElement;
+    new (): HTMLTabsRootElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-root': HTMLAppRootElement
+    'app-menu': HTMLAppMenuElement
     'page-about': HTMLPageAboutElement
     'page-home': HTMLPageHomeElement
+    'tabs-dashboard': HTMLTabsDashboardElement
+    'tabs-home': HTMLTabsHomeElement
+    'tabs-root': HTMLTabsRootElement
   }
 
   interface ElementTagNameMap {
     'app-root': HTMLAppRootElement;
+    'app-menu': HTMLAppMenuElement;
     'page-about': HTMLPageAboutElement;
     'page-home': HTMLPageHomeElement;
+    'tabs-dashboard': HTMLTabsDashboardElement;
+    'tabs-home': HTMLTabsHomeElement;
+    'tabs-root': HTMLTabsRootElement;
   }
 
 
