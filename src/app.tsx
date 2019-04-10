@@ -1,9 +1,14 @@
 import {Component} from "@stencil/core";
+import { authSvc } from "./services/auth.service";
 
 @Component({
     tag: 'app-root'
 })
 export class App {
+    componentDidLoad() {
+        console.log(authSvc.hello());
+        console.log('name:', authSvc.name);
+    }
     render() {
         return ( 
             <ion-app>
