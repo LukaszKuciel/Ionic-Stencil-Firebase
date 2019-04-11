@@ -1,21 +1,25 @@
-import {Component} from "@stencil/core";
+import {Component, State} from "@stencil/core";
 import { authSvc } from "./services/auth.service";
 
 @Component({
     tag: 'app-root'
 })
 export class App {
-    componentDidLoad() {
-        console.log(authSvc.hello());
-        console.log('name:', authSvc.name);
+    @State() user: firebase.User
+
+    componentWillLoad() {
+        authSvc.verifyEmailLink(location.href)
+        authSvc.user$.subscribe(data => this.user = data)
     }
+
     render() {
         return ( 
             <ion-app>
                 <ion-router useHash={false}>
-                    <ion-route url='/' component='page-home'></ion-route>
-                    <ion-route url='/about' component='page-about'></ion-route>
-
+                    <ion-route url='/' component='page-home' componentProps={ {user: this.user} } />
+                    <ion-route url='/about' component='page-about' />
+                    <ion-route url='/auth' component='page-auth' />
+                    
                     <ion-route url='home' component='tabs-root'>
                         <ion-route url='/' component='tabs-home' >
                             <ion-route component='tabs-home' />

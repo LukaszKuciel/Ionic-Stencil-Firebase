@@ -22,8 +22,15 @@ export namespace Components {
   interface PageAbout {}
   interface PageAboutAttributes extends StencilHTMLAttributes {}
 
-  interface PageHome {}
-  interface PageHomeAttributes extends StencilHTMLAttributes {}
+  interface PageAuth {}
+  interface PageAuthAttributes extends StencilHTMLAttributes {}
+
+  interface PageHome {
+    'user': firebase.User;
+  }
+  interface PageHomeAttributes extends StencilHTMLAttributes {
+    'user'?: firebase.User;
+  }
 
   interface TabsDashboard {}
   interface TabsDashboardAttributes extends StencilHTMLAttributes {}
@@ -40,6 +47,7 @@ declare global {
     'AppRoot': Components.AppRoot;
     'AppMenu': Components.AppMenu;
     'PageAbout': Components.PageAbout;
+    'PageAuth': Components.PageAuth;
     'PageHome': Components.PageHome;
     'TabsDashboard': Components.TabsDashboard;
     'TabsHome': Components.TabsHome;
@@ -50,6 +58,7 @@ declare global {
     'app-root': Components.AppRootAttributes;
     'app-menu': Components.AppMenuAttributes;
     'page-about': Components.PageAboutAttributes;
+    'page-auth': Components.PageAuthAttributes;
     'page-home': Components.PageHomeAttributes;
     'tabs-dashboard': Components.TabsDashboardAttributes;
     'tabs-home': Components.TabsHomeAttributes;
@@ -73,6 +82,12 @@ declare global {
   var HTMLPageAboutElement: {
     prototype: HTMLPageAboutElement;
     new (): HTMLPageAboutElement;
+  };
+
+  interface HTMLPageAuthElement extends Components.PageAuth, HTMLStencilElement {}
+  var HTMLPageAuthElement: {
+    prototype: HTMLPageAuthElement;
+    new (): HTMLPageAuthElement;
   };
 
   interface HTMLPageHomeElement extends Components.PageHome, HTMLStencilElement {}
@@ -103,6 +118,7 @@ declare global {
     'app-root': HTMLAppRootElement
     'app-menu': HTMLAppMenuElement
     'page-about': HTMLPageAboutElement
+    'page-auth': HTMLPageAuthElement
     'page-home': HTMLPageHomeElement
     'tabs-dashboard': HTMLTabsDashboardElement
     'tabs-home': HTMLTabsHomeElement
@@ -113,6 +129,7 @@ declare global {
     'app-root': HTMLAppRootElement;
     'app-menu': HTMLAppMenuElement;
     'page-about': HTMLPageAboutElement;
+    'page-auth': HTMLPageAuthElement;
     'page-home': HTMLPageHomeElement;
     'tabs-dashboard': HTMLTabsDashboardElement;
     'tabs-home': HTMLTabsHomeElement;

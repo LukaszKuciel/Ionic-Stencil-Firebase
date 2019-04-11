@@ -9,11 +9,14 @@
   "author": "Lukasz Kuciel",
   "license": "ISC",
   "dependencies": {
+    "@capacitor/core": "^1.0.0-beta.19",
     "@ionic/core": "^4.2.0",
-    "firebase": "^5.9.3"
+    "firebase": "^5.9.3",
+    "rxfire": "^3.3.10",
+    "rxjs": "^6.4.0"
   },
   "devDependencies": {
-    "@stencil/core": "^0.18.1",
+    "@stencil/core": "0.18.0",
     "@stencil/sass": "^0.1.1"
   }
 }
