@@ -16,8 +16,12 @@ export namespace Components {
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
 
-  interface AppMenu {}
-  interface AppMenuAttributes extends StencilHTMLAttributes {}
+  interface AppMenu {
+    'user': firebase.User;
+  }
+  interface AppMenuAttributes extends StencilHTMLAttributes {
+    'user'?: firebase.User;
+  }
 
   interface PageAbout {}
   interface PageAboutAttributes extends StencilHTMLAttributes {}
@@ -32,8 +36,12 @@ export namespace Components {
     'user'?: firebase.User;
   }
 
-  interface TabsDashboard {}
-  interface TabsDashboardAttributes extends StencilHTMLAttributes {}
+  interface TabsDashboard {
+    'user': firebase.User;
+  }
+  interface TabsDashboardAttributes extends StencilHTMLAttributes {
+    'user'?: firebase.User;
+  }
 
   interface TabsHome {}
   interface TabsHomeAttributes extends StencilHTMLAttributes {}

@@ -20,16 +20,21 @@ export class App {
                     <ion-route url='/about' component='page-about' />
                     <ion-route url='/auth' component='page-auth' />
                     
-                    <ion-route url='home' component='tabs-root'>
+                    <ion-route url='home' component='tabs-root' >
+
                         <ion-route url='/' component='tabs-home' >
                             <ion-route component='tabs-home' />
                         </ion-route>
+
                         <ion-route url='/user' component='tabs-dashboard' >
-                            <ion-route component='tabs-dashboard' />
+                            <ion-route component='tabs-dashboard' componentProps={ {user: this.user} } />
                         </ion-route>
+
                     </ion-route>
+
+                    { this.user ? <ion-route-redirect from='/auth' to='/home' /> : undefined }
                 </ion-router>
-                <app-menu />
+                <app-menu user={ this.user }/>
                 <ion-nav id='main' />
             </ion-app>
         )

@@ -52,6 +52,10 @@ export class AuthService {
         return this.providerHandler(provider);
     }
 
+    public logout() {
+        return auth.signOut()
+    }
+
     private async openPrompt() {
         const prompt = await Modals.prompt({
             title: 'Email Verification',
