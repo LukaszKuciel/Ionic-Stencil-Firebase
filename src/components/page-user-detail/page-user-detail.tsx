@@ -2,6 +2,8 @@ import { Component, State } from "@stencil/core";
 import { User } from "../../interfaces/user";
 import { userSvc } from "../../services/user.service";
 import { Subscription } from "rxjs";
+import { authSvc } from "../../services/auth.service";
+import { first } from "rxjs/operators";
 
 @Component({
   tag: "page-user-detail",
@@ -15,13 +17,18 @@ export class PageUserDetail {
   componentWillLoad() {
     const uid = location.href.split("/")[4];
     this.userSub$ = userSvc.getUser(uid).subscribe(user => (this.user = user));
+    this.checkOwnership(uid);
   }
 
   componentDidUnload() {
     this.userSub$.unsubscribe();
   }
 
-  async checkOwnership(uid: string) {}
+  async checkOwnership(uid: string) {
+    const user = await authSvc.user$.pipe(first()).toPromise();
+    uid === user.uid ? (this.isOwner = true) : (this.isOwner = false);
+  }
+
   render() {
     return [
       <ion-header no-border>
@@ -35,7 +42,7 @@ export class PageUserDetail {
           <ion-buttons slot="end">
             {this.isOwner ? (
               <ion-button href="/home/user/update">
-                <ion-icon name="edit" />
+                <ion-icon name="create" />
               </ion-button>
             ) : (
               undefined
