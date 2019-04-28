@@ -1,0 +1,21 @@
+page-user-detail {
+  ion-grid {
+    height: 100%;
+    padding: 3rem;
+  }
+  ion-row {
+    height: 100%;
+    widows: 100%;
+    text-align: center;
+    align-items: center;
+  }
+  ion-thumbnail {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    img {
+      border-radius: 50%;
+    }
+  }
+}
