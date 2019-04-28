@@ -9,6 +9,9 @@ import '@stencil/core';
 
 import '@ionic/core';
 import 'ionicons';
+import {
+  User,
+} from './interfaces/user';
 
 
 export namespace Components {
@@ -17,30 +20,39 @@ export namespace Components {
   interface AppRootAttributes extends StencilHTMLAttributes {}
 
   interface AppMenu {
-    'user': firebase.User;
+    'user': User;
   }
   interface AppMenuAttributes extends StencilHTMLAttributes {
-    'user'?: firebase.User;
+    'user'?: User;
   }
 
   interface PageAbout {}
   interface PageAboutAttributes extends StencilHTMLAttributes {}
 
+  interface PageAdmin {}
+  interface PageAdminAttributes extends StencilHTMLAttributes {}
+
   interface PageAuth {}
   interface PageAuthAttributes extends StencilHTMLAttributes {}
 
   interface PageHome {
-    'user': firebase.User;
+    'user': User;
   }
   interface PageHomeAttributes extends StencilHTMLAttributes {
-    'user'?: firebase.User;
+    'user'?: User;
   }
 
+  interface PageUserDetail {}
+  interface PageUserDetailAttributes extends StencilHTMLAttributes {}
+
+  interface PageUserList {}
+  interface PageUserListAttributes extends StencilHTMLAttributes {}
+
   interface TabsDashboard {
-    'user': firebase.User;
+    'user': User;
   }
   interface TabsDashboardAttributes extends StencilHTMLAttributes {
-    'user'?: firebase.User;
+    'user'?: User;
   }
 
   interface TabsHome {}
@@ -48,6 +60,13 @@ export namespace Components {
 
   interface TabsRoot {}
   interface TabsRootAttributes extends StencilHTMLAttributes {}
+
+  interface UserList {
+    'users': User[];
+  }
+  interface UserListAttributes extends StencilHTMLAttributes {
+    'users'?: User[];
+  }
 }
 
 declare global {
@@ -55,22 +74,30 @@ declare global {
     'AppRoot': Components.AppRoot;
     'AppMenu': Components.AppMenu;
     'PageAbout': Components.PageAbout;
+    'PageAdmin': Components.PageAdmin;
     'PageAuth': Components.PageAuth;
     'PageHome': Components.PageHome;
+    'PageUserDetail': Components.PageUserDetail;
+    'PageUserList': Components.PageUserList;
     'TabsDashboard': Components.TabsDashboard;
     'TabsHome': Components.TabsHome;
     'TabsRoot': Components.TabsRoot;
+    'UserList': Components.UserList;
   }
 
   interface StencilIntrinsicElements {
     'app-root': Components.AppRootAttributes;
     'app-menu': Components.AppMenuAttributes;
     'page-about': Components.PageAboutAttributes;
+    'page-admin': Components.PageAdminAttributes;
     'page-auth': Components.PageAuthAttributes;
     'page-home': Components.PageHomeAttributes;
+    'page-user-detail': Components.PageUserDetailAttributes;
+    'page-user-list': Components.PageUserListAttributes;
     'tabs-dashboard': Components.TabsDashboardAttributes;
     'tabs-home': Components.TabsHomeAttributes;
     'tabs-root': Components.TabsRootAttributes;
+    'user-list': Components.UserListAttributes;
   }
 
 
@@ -92,6 +119,12 @@ declare global {
     new (): HTMLPageAboutElement;
   };
 
+  interface HTMLPageAdminElement extends Components.PageAdmin, HTMLStencilElement {}
+  var HTMLPageAdminElement: {
+    prototype: HTMLPageAdminElement;
+    new (): HTMLPageAdminElement;
+  };
+
   interface HTMLPageAuthElement extends Components.PageAuth, HTMLStencilElement {}
   var HTMLPageAuthElement: {
     prototype: HTMLPageAuthElement;
@@ -102,6 +135,18 @@ declare global {
   var HTMLPageHomeElement: {
     prototype: HTMLPageHomeElement;
     new (): HTMLPageHomeElement;
+  };
+
+  interface HTMLPageUserDetailElement extends Components.PageUserDetail, HTMLStencilElement {}
+  var HTMLPageUserDetailElement: {
+    prototype: HTMLPageUserDetailElement;
+    new (): HTMLPageUserDetailElement;
+  };
+
+  interface HTMLPageUserListElement extends Components.PageUserList, HTMLStencilElement {}
+  var HTMLPageUserListElement: {
+    prototype: HTMLPageUserListElement;
+    new (): HTMLPageUserListElement;
   };
 
   interface HTMLTabsDashboardElement extends Components.TabsDashboard, HTMLStencilElement {}
@@ -122,26 +167,40 @@ declare global {
     new (): HTMLTabsRootElement;
   };
 
+  interface HTMLUserListElement extends Components.UserList, HTMLStencilElement {}
+  var HTMLUserListElement: {
+    prototype: HTMLUserListElement;
+    new (): HTMLUserListElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-root': HTMLAppRootElement
     'app-menu': HTMLAppMenuElement
     'page-about': HTMLPageAboutElement
+    'page-admin': HTMLPageAdminElement
     'page-auth': HTMLPageAuthElement
     'page-home': HTMLPageHomeElement
+    'page-user-detail': HTMLPageUserDetailElement
+    'page-user-list': HTMLPageUserListElement
     'tabs-dashboard': HTMLTabsDashboardElement
     'tabs-home': HTMLTabsHomeElement
     'tabs-root': HTMLTabsRootElement
+    'user-list': HTMLUserListElement
   }
 
   interface ElementTagNameMap {
     'app-root': HTMLAppRootElement;
     'app-menu': HTMLAppMenuElement;
     'page-about': HTMLPageAboutElement;
+    'page-admin': HTMLPageAdminElement;
     'page-auth': HTMLPageAuthElement;
     'page-home': HTMLPageHomeElement;
+    'page-user-detail': HTMLPageUserDetailElement;
+    'page-user-list': HTMLPageUserListElement;
     'tabs-dashboard': HTMLTabsDashboardElement;
     'tabs-home': HTMLTabsHomeElement;
     'tabs-root': HTMLTabsRootElement;
+    'user-list': HTMLUserListElement;
   }
 
 
