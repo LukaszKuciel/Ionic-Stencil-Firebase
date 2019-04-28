@@ -1,20 +1,13 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-
-    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-
-    "lib": ["dom", "es2017"],
-    "moduleResolution": "node",
-    "module": "esnext",
-    "target": "es2017",
-
-    "jsx": "react",
-    "jsxFactory": "h"
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2015"
   },
   "compileOnSave": true,
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }
